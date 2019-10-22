@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as rp from "request-promise";
 import * as cheerio from "cheerio";
 
-const terraformBaseUrl: string = "https://ibm-cloud.github.io/tf-ibm-docs/v0.17.6";
+const terraformBaseUrl: string = "https://ibm-cloud.github.io/tf-ibm-docs/v0.18.0";
 const terraformDocHost: string = "https://ibm-cloud.github.io";
 
 const provider = { data: {}, resource: {} };
