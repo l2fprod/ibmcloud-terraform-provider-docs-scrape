@@ -2,12 +2,15 @@ import * as fs from "fs";
 import * as rp from "request-promise";
 import * as cheerio from "cheerio";
 
-const terraformBaseUrl: string = "https://ibm-cloud.github.io/tf-ibm-docs/v0.18.0";
+const docVersion = process.argv[2];
+console.log('Processing doc', docVersion);
+
+const terraformBaseUrl: string = `https://ibm-cloud.github.io/tf-ibm-docs/${docVersion}`;
 const terraformDocHost: string = "https://ibm-cloud.github.io";
 
 const provider = { data: {}, resource: {} };
 
-async function process() {
+async function doIt() {
   const indexPage = await rp(terraformBaseUrl);
   const $ = cheerio.load(indexPage);
 
@@ -15,13 +18,13 @@ async function process() {
   const categories = $(".sidebar-content .list-unstyled li").toArray();
   for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
     const currentItem = $(categories[categoryIndex]);
-    const groupLabel = currentItem.children("label");
+    const groupLabel = currentItem.children("a.tree-toggle");
     if (groupLabel.length !== 1) {
       continue;
     }
 
     const groupName = groupLabel.first().text().trim();
-    console.log(groupName);
+    console.log('>>>', groupName);
 
     const items = currentItem.find("ul li").toArray();
     for (let index = 0; index < items.length; index++) {
@@ -103,4 +106,4 @@ async function processItem(groupName: string, isData: boolean, item: Cheerio) {
   }
 }
 
-process();
+doIt();

@@ -1,0 +1,11 @@
+# only run the test on master
+branches:
+  only:
+  - master
+
+language: node_js
+node_js:
+  - 10
+
+script:
+  - ./check-update.sh
