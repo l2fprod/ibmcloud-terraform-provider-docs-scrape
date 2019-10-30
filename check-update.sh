@@ -14,7 +14,7 @@ function get_latest {
 
 VERSION=$(get_latest "IBM-Cloud/terraform-provider-ibm" "linux_amd64")
 
-run the generator
+# run the generator
 npm install
 npm run build
 npm start $VERSION
