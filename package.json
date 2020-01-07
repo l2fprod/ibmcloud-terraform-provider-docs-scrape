@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/cheerio": "0.22.13",
-    "@types/node": "^12.11.7",
+    "@types/node": "12.11.7",
     "@types/request-promise": "4.1.44",
     "typescript": "3.6.4"
   }
