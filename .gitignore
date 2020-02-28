@@ -1,6 +1,4 @@
 node_modules/*
-*.js
-*.js.map
 terraform-provider-ibm.json
 current-terraform-provider-ibm.json
-*.log
+provider-docs

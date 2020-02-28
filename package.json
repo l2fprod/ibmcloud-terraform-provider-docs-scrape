@@ -4,21 +4,12 @@
   "description": "Convert terraform html docs to json",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "tsc -p .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node parse-docs.js"
   },
   "author": "Frederic Lavigne",
-  "license": "ISC",
+  "license": "Apache 2.0",
   "dependencies": {
-    "cheerio": "1.0.0-rc.2",
-    "request": "2.88",
-    "request-promise": "4.2.4"
+    "read-yaml": "^1.1.0"
   },
-  "devDependencies": {
-    "@types/cheerio": "0.22.13",
-    "@types/node": "12.11.7",
-    "@types/request-promise": "4.1.44",
-    "typescript": "3.6.4"
-  }
+  "devDependencies": {}
 }
