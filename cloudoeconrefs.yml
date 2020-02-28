@@ -1,0 +1,21 @@
+#IBM Cloud conref equivalent file to cloudoeconrefs.dita
+
+#//Do not translate - Begin
+
+keyword:
+  cloud_notm:
+     IBM Cloud
+  databases-for:
+    Cloud Databases
+  keymanagementservicelong_notm:
+    IBM Key Protect
+  cos_full_notm:
+    IBM Cloud Object Storage
+  containerlong_notm:
+    IBM Cloud Kubernetes Service
+  cloudcerts_long_notm:
+    IBM Cloud Certificate Manager
+  cis_full_notm:
+    IBM Cloud Internet Services
+  vsi_is_short:
+    Virtual Servers for VPC
