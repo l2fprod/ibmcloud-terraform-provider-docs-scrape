@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-git clone https://github.com/l2fprod/terraform provider-docs
+git clone https://github.com/ibm-cloud-docs/terraform provider-docs
 
 # run the generator
 npm install
