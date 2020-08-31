@@ -95,10 +95,17 @@ function resolveNestedParam(item, itemChildren, param) {
   if (dotIndex >= 0) {
     const parentName = param.name.substring(0, dotIndex);
     // console.log('resolve nested', item.name, param.name, parentName);
-    const parent = itemChildren.find((value, index) => {
+    let parent = itemChildren.find((value, index) => {
       return value.name == parentName;
     });
 
+    if (!parent) {
+      parent = {
+        name: parentName,
+        args: [],
+      }
+      itemChildren.push(parent);
+    }
     param.name = param.name.substring(dotIndex + 1);
 
     console.log(`      ${parentName} -> ${param.name}`);
