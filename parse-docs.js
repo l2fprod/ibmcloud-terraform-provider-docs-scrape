@@ -132,4 +132,20 @@ Object.keys(resource).sort().forEach(function(key) {
   provider.resource[key] = resource[key];
 });
 
+var options = {
+  compareFunction: (object1, object2) => {
+    if (typeof object1 === "object" && object1.name) {
+      return object1.name.localeCompare(object2.name);
+    } else if (typeof object1 === "string") {
+      return object1.localeCompare(object2);
+    } else {
+      console.log("fail to compare", object1);
+      process.exit(1);
+    }
+  }
+}
+const sortKeysRecursive = require('sort-keys-recursive');
+provider.data = sortKeysRecursive(provider.data, options);
+provider.resource = sortKeysRecursive(provider.resource, options);
+
 fs.writeFileSync("terraform-provider-ibm.json", JSON.stringify(provider, null, 2));
